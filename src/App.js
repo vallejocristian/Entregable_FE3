@@ -1,3 +1,7 @@
+import Cabecera from "./components/Cabecera";
+import Listado from "./components/Listado";
+import { useState } from "react";
+
 // El componente App es el padre de:
 // - Cabecera
 // - Listado
@@ -7,10 +11,16 @@
 
 function App() {
 
+  const [ cantidad, setCantidad ] = useState(0);
+
+  function aumentar() {
+    setCantidad(cantidad + 1);
+  }
+
   return (
     <div className="App">
-      <Cabecera />
-      <Listado />
+      <Cabecera contador = { cantidad } />
+      <Listado incremento = { aumentar } />
     </div>
   );
 }
